@@ -1,41 +1,38 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# Root .gitignore — Museum of Tiny Wins
+# Canonical app lives in /mtw-app (see CURRENT_STATE.md).
+# Patterns are intentionally non-anchored so they apply to the app subtree.
 
 # dependencies
-/node_modules
-/.pnp
+node_modules/
+.pnp
 .pnp.*
-.yarn/*
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/versions
 
-# testing
-/coverage
-
-# next.js
-/.next/
-/out/
+# next.js build output
+.next/
+out/
 
 # production
-/build
+build/
+
+# testing
+coverage/
+
+# env files (do not commit real credentials)
+.env*
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# vercel
+.vercel
 
 # misc
 .DS_Store
 *.pem
 
-# debug
+# debug logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
-
-# env files (can opt-in for committing if needed)
-.env*
-
-# vercel
-.vercel
-
-# typescript
-*.tsbuildinfo
-next-env.d.ts

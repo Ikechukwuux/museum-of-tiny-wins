@@ -1,0 +1,354 @@
+
+> mtw-app@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.10 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.140:3000
+- Environments: .env.local
+✓ Ready in 12.1s
+
+○ Compiling / ...
+ GET / 200 in 8.1s (next.js: 6.9s, application-code: 1186ms)
+ GET / 200 in 8.5s (next.js: 7.2s, application-code: 1338ms)
+ GET / 200 in 521ms (next.js: 27ms, application-code: 494ms)
+ GET / 200 in 437ms (next.js: 45ms, application-code: 393ms)
+✓ Compiled in 3.1s
+ GET / 200 in 8.2s (next.js: 4.0s, application-code: 4.2s)
+ GET / 200 in 1900ms (next.js: 27ms, application-code: 1873ms)
+ GET / 200 in 2.0s (next.js: 684ms, application-code: 1366ms)
+[browser] Image with src "/card-background-images/card-bg-26.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading (file://C:/Users/LENOVO/OneDrive/Desktop/museum of tiny wins/mtw-app/.next/dev/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477:13)
+ GET / 200 in 855ms (next.js: 33ms, application-code: 822ms)
+[browser] Image with src "/card-background-images/card-bg-26.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading (file://C:/Users/LENOVO/OneDrive/Desktop/museum of tiny wins/mtw-app/.next/dev/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477:13)
+ GET / 200 in 1092ms (next.js: 617ms, application-code: 475ms)
+✓ Compiled in 7.6s
+ GET / 200 in 4.3s (next.js: 3.4s, application-code: 932ms)
+ GET / 200 in 541ms (next.js: 32ms, application-code: 508ms)
+✓ Compiled in 402ms
+ GET / 200 in 1081ms (next.js: 600ms, application-code: 481ms)
+✓ Compiled in 742ms
+ GET / 200 in 828ms (next.js: 563ms, application-code: 265ms)
+✓ Compiled in 1852ms
+⨯ ./components/landing/EditorialHero.tsx:194:17
+Expected '</', got 'jsx text'
+  [90m192 |[0m               </[33mLink[0m>
+  [90m193 |[0m             </motion.div>
+[31m[1m>[0m [90m194 |[0m           </div>
+  [90m    |[0m                 [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m195 |[0m
+  [90m    |[0m [31m[1m^[0m
+[31m[1m>[0m [90m196 |[0m           {/* ── [33mZONE[0m [33mB[0m: [33mComposed[0m [33mCard[0m [33mCluster[0m ([33mRight[0m) ─────────────────
+  [90m    |[0m [31m[1m^^^^^^^^^^[0m
+  [90m197 |[0m            *  [33mA[0m bounded, hung [35m4[0m-card arrangement. [33mThe[0m anchor[32m's left edge[0m
+  [90m198 |[0m [32m           *  intrudes into the center gap; the right column starts lower and[0m
+  [90m199 |[0m [32m           *  descends further, so the cluster reads as a curated hang, not a[0m
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./components/landing/EditorialHero.tsx [Client Component Browser]
+    ./app/(site)/page.tsx [Client Component Browser]
+    ./app/(site)/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/landing/EditorialHero.tsx [Client Component SSR]
+    ./app/(site)/page.tsx [Client Component SSR]
+    ./app/(site)/page.tsx [Server Component]
+
+
+ GET / 500 in 7.0s (next.js: 3.2s, application-code: 3.8s)
+✓ Compiled in 9ms
+ GET / 200 in 1251ms (next.js: 595ms, application-code: 656ms)
+ GET / 200 in 236ms (next.js: 39ms, application-code: 198ms)
+✓ Compiled in 359ms
+⨯ ./components/landing/EditorialHero.tsx:343:17
+Expected '</', got 'jsx text'
+  [90m341 |[0m               </div>
+  [90m342 |[0m             </div>
+[31m[1m>[0m [90m343 |[0m           </div>
+  [90m    |[0m                 [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m344 |[0m           
+  [90m    |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m345 |[0m         </div>
+  [90m    |[0m [31m[1m^^^^^^^^[0m
+  [90m346 |[0m       </div>
+  [90m347 |[0m     </section>
+  [90m348 |[0m   );
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./components/landing/EditorialHero.tsx [Client Component Browser]
+    ./app/(site)/page.tsx [Client Component Browser]
+    ./app/(site)/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/landing/EditorialHero.tsx [Client Component SSR]
+    ./app/(site)/page.tsx [Client Component SSR]
+    ./app/(site)/page.tsx [Server Component]
+
+
+ GET / 500 in 223ms (next.js: 182ms, application-code: 42ms)
+⨯ ./components/landing/EditorialHero.tsx:343:17
+Expected '</', got 'jsx text'
+  [90m341 |[0m               </div>
+  [90m342 |[0m             </div>
+[31m[1m>[0m [90m343 |[0m           </div>
+  [90m    |[0m                 [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m344 |[0m           
+  [90m    |[0m [31m[1m^^^^^^^^^^[0m
+[31m[1m>[0m [90m345 |[0m         </div>
+  [90m    |[0m [31m[1m^^^^^^^^[0m
+  [90m346 |[0m       </div>
+  [90m347 |[0m     </section>
+  [90m348 |[0m   );
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./components/landing/EditorialHero.tsx [Client Component Browser]
+    ./app/(site)/page.tsx [Client Component Browser]
+    ./app/(site)/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/landing/EditorialHero.tsx [Client Component SSR]
+    ./app/(site)/page.tsx [Client Component SSR]
+    ./app/(site)/page.tsx [Server Component]
+
+
+ GET / 500 in 86ms (next.js: 47ms, application-code: 38ms)
+[browser] Uncaught Error: ./components/landing/EditorialHero.tsx:343:17
+Expected '</', got 'jsx text'
+  341 |               </div>
+  342 |             </div>
+> 343 |           </div>
+      |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 344 |           
+      | ^^^^^^^^^^
+> 345 |         </div>
+      | ^^^^^^^^
+  346 |       </div>
+  347 |     </section>
+  348 |   );
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./components/landing/EditorialHero.tsx [Client Component Browser]
+    ./app/(site)/page.tsx [Client Component Browser]
+    ./app/(site)/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/landing/EditorialHero.tsx [Client Component SSR]
+    ./app/(site)/page.tsx [Client Component SSR]
+    ./app/(site)/page.tsx [Server Component]
+
+
+    at <unknown> (Error: ./components/landing/EditorialHero.tsx:343:17)
+    at <unknown> (Error: (./components/landing/EditorialHero.tsx:343:17)
+✓ Compiled in 367ms
+ GET / 200 in 3.8s (next.js: 677ms, application-code: 3.1s)
+ GET / 200 in 1731ms (next.js: 401ms, application-code: 1330ms)
+ GET / 200 in 416ms (next.js: 28ms, application-code: 388ms)
+✓ Compiled in 1422ms
+ GET / 200 in 2.7s (next.js: 2.4s, application-code: 291ms)
+ GET / 200 in 337ms (next.js: 196ms, application-code: 141ms)
+ GET / 200 in 5.4s (next.js: 317ms, application-code: 5.1s)
+✓ Compiled in 2.4s
+ GET / 200 in 2.8s (next.js: 2.1s, application-code: 772ms)
+ GET / 200 in 244ms (next.js: 100ms, application-code: 144ms)
+✓ Compiled in 162ms
+ GET / 200 in 760ms (next.js: 525ms, application-code: 234ms)
+✓ Compiled in 1097ms
+ GET / 200 in 1088ms (next.js: 590ms, application-code: 498ms)
+ GET / 200 in 227ms (next.js: 42ms, application-code: 185ms)
+✓ Compiled in 447ms
+⨯ ./components/landing/EditorialHero.tsx:214:17
+Expected '</', got 'jsx text'
+  [90m212 |[0m               </[33mLink[0m>
+  [90m213 |[0m             </motion.div>
+[31m[1m>[0m [90m214 |[0m           </div>
+  [90m    |[0m                 [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m215 |[0m
+  [90m    |[0m [31m[1m^[0m
+[31m[1m>[0m [90m216 |[0m           {/* ── [33mZONE[0m [33mB[0m: [33mComposed[0m [33mCard[0m [33mCluster[0m ([33mRight[0m) ─────────────────
+  [90m    |[0m [31m[1m^^^^^^^^^^[0m
+  [90m217 |[0m            *  [33mA[0m bounded, hung [35m4[0m-card arrangement. [33mThe[0m anchor[32m's left edge[0m
+  [90m218 |[0m [32m           *  intrudes into the center gap; the right column starts lower and[0m
+  [90m219 |[0m [32m           *  descends further, so the cluster reads as a curated hang, not a[0m
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./components/landing/EditorialHero.tsx [Client Component Browser]
+    ./app/(site)/page.tsx [Client Component Browser]
+    ./app/(site)/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/landing/EditorialHero.tsx [Client Component SSR]
+    ./app/(site)/page.tsx [Client Component SSR]
+    ./app/(site)/page.tsx [Server Component]
+
+
+ GET / 500 in 296ms (next.js: 201ms, application-code: 94ms)
+⨯ ./components/landing/EditorialHero.tsx:214:17
+Expected '</', got 'jsx text'
+  [90m212 |[0m               </[33mLink[0m>
+  [90m213 |[0m             </motion.div>
+[31m[1m>[0m [90m214 |[0m           </div>
+  [90m    |[0m                 [31m[1m^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m
+[31m[1m>[0m [90m215 |[0m
+  [90m    |[0m [31m[1m^[0m
+[31m[1m>[0m [90m216 |[0m           {/* ── [33mZONE[0m [33mB[0m: [33mComposed[0m [33mCard[0m [33mCluster[0m ([33mRight[0m) ─────────────────
+  [90m    |[0m [31m[1m^^^^^^^^^^[0m
+  [90m217 |[0m            *  [33mA[0m bounded, hung [35m4[0m-card arrangement. [33mThe[0m anchor[32m's left edge[0m
+  [90m218 |[0m [32m           *  intrudes into the center gap; the right column starts lower and[0m
+  [90m219 |[0m [32m           *  descends further, so the cluster reads as a curated hang, not a[0m
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./components/landing/EditorialHero.tsx [Client Component Browser]
+    ./app/(site)/page.tsx [Client Component Browser]
+    ./app/(site)/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/landing/EditorialHero.tsx [Client Component SSR]
+    ./app/(site)/page.tsx [Client Component SSR]
+    ./app/(site)/page.tsx [Server Component]
+
+
+ GET / 500 in 80ms (next.js: 45ms, application-code: 34ms)
+[browser] Uncaught Error: ./components/landing/EditorialHero.tsx:214:17
+Expected '</', got 'jsx text'
+  212 |               </Link>
+  213 |             </motion.div>
+> 214 |           </div>
+      |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+> 215 |
+      | ^
+> 216 |           {/* ── ZONE B: Composed Card Cluster (Right) ─────────────────
+      | ^^^^^^^^^^
+  217 |            *  A bounded, hung 4-card arrangement. The anchor's left edge
+  218 |            *  intrudes into the center gap; the right column starts lower and
+  219 |            *  descends further, so the cluster reads as a curated hang, not a
+
+Parsing ecmascript source code failed
+
+Import traces:
+  Client Component Browser:
+    ./components/landing/EditorialHero.tsx [Client Component Browser]
+    ./app/(site)/page.tsx [Client Component Browser]
+    ./app/(site)/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./components/landing/EditorialHero.tsx [Client Component SSR]
+    ./app/(site)/page.tsx [Client Component SSR]
+    ./app/(site)/page.tsx [Server Component]
+
+
+    at <unknown> (Error: ./components/landing/EditorialHero.tsx:214:17)
+    at <unknown> (Error: (./components/landing/EditorialHero.tsx:214:17)
+✓ Compiled in 273ms
+ GET / 200 in 1749ms (next.js: 441ms, application-code: 1308ms)
+✓ Compiled in 4.3s
+ GET / 200 in 782ms (next.js: 544ms, application-code: 238ms)
+ GET / 200 in 178ms (next.js: 20ms, application-code: 159ms)
+ GET / 200 in 1391ms (next.js: 25ms, application-code: 1366ms)
+ GET / 200 in 1248ms (next.js: 115ms, application-code: 1133ms)
+ GET / 200 in 410ms (next.js: 118ms, application-code: 292ms)
+ GET / 200 in 419ms (next.js: 30ms, application-code: 389ms)
+ GET / 200 in 409ms (next.js: 188ms, application-code: 221ms)
+ GET / 200 in 1267ms (next.js: 22ms, application-code: 1245ms)
+ GET / 200 in 951ms (next.js: 166ms, application-code: 785ms)
+ GET / 200 in 179ms (next.js: 24ms, application-code: 155ms)
+[browser] Image with src "/card-background-images/card-bg-2.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading (file://C:/Users/LENOVO/OneDrive/Desktop/museum of tiny wins/mtw-app/.next/dev/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477:13)
+ GET / 200 in 264ms (next.js: 16ms, application-code: 248ms)
+[browser] Image with src "/card-background-images/card-bg-2.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading (file://C:/Users/LENOVO/OneDrive/Desktop/museum of tiny wins/mtw-app/.next/dev/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477:13)
+ GET / 200 in 158ms (next.js: 22ms, application-code: 135ms)
+[browser] Image with src "/card-background-images/card-bg-2.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading (file://C:/Users/LENOVO/OneDrive/Desktop/museum of tiny wins/mtw-app/.next/dev/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477:13)
+ GET / 200 in 236ms (next.js: 14ms, application-code: 222ms)
+ GET / 200 in 273ms (next.js: 25ms, application-code: 247ms)
+ GET / 200 in 243ms (next.js: 31ms, application-code: 213ms)
+ GET / 200 in 208ms (next.js: 16ms, application-code: 192ms)
+ GET /exhibition 200 in 1946ms (next.js: 1518ms, application-code: 428ms)
+✓ Compiled in 1420ms
+ GET /exhibition 200 in 1156ms (next.js: 760ms, application-code: 396ms)
+ GET / 200 in 1634ms (next.js: 1243ms, application-code: 390ms)
+✓ Compiled in 6.3s
+ GET / 200 in 4.0s (next.js: 1457ms, application-code: 2.5s)
+ GET / 200 in 2.4s (next.js: 853ms, application-code: 1550ms)
+ GET / 200 in 7.0s (next.js: 1093ms, application-code: 5.9s)
+ GET / 200 in 1000ms (next.js: 657ms, application-code: 343ms)
+ GET / 200 in 1005ms (next.js: 88ms, application-code: 917ms)
+ GET / 200 in 1003ms (next.js: 400ms, application-code: 603ms)
+ GET / 200 in 2.5s (next.js: 494ms, application-code: 2.0s)
+✓ Compiled in 1038ms
+ GET / 200 in 2.8s (next.js: 1348ms, application-code: 1462ms)
+ GET / 200 in 286ms (next.js: 77ms, application-code: 209ms)
+ GET / 200 in 4.9s (next.js: 628ms, application-code: 4.2s)
+ GET / 200 in 2.0s (next.js: 98ms, application-code: 1914ms)
+[browser] Image with src "/card-background-images/card-bg-2.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading (file://C:/Users/LENOVO/OneDrive/Desktop/museum of tiny wins/mtw-app/.next/dev/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477:13)
+ GET / 200 in 605ms (next.js: 26ms, application-code: 578ms)
+ GET / 200 in 7.2s (next.js: 1476ms, application-code: 5.7s)
+✓ Compiled in 7.9s
+ GET / 200 in 560ms (next.js: 25ms, application-code: 534ms)
+ GET / 200 in 10.1s (next.js: 3.9s, application-code: 6.2s)
+ GET / 200 in 10.3s (next.js: 5.1s, application-code: 5.2s)
+✓ Compiled in 989ms
+ GET / 200 in 1673ms (next.js: 1233ms, application-code: 440ms)
+✓ Compiled in 235ms
+ GET / 200 in 855ms (next.js: 578ms, application-code: 278ms)
+✓ Compiled in 476ms
+ GET / 200 in 960ms (next.js: 615ms, application-code: 346ms)
+✓ Compiled in 470ms
+ GET / 200 in 930ms (next.js: 598ms, application-code: 332ms)
+✓ Compiled in 206ms
+ GET / 200 in 852ms (next.js: 621ms, application-code: 232ms)
+✓ Compiled in 421ms
+ GET / 200 in 755ms (next.js: 499ms, application-code: 255ms)
+✓ Compiled in 339ms
+ GET / 200 in 1039ms (next.js: 642ms, application-code: 396ms)
+✓ Compiled in 294ms
+ GET / 200 in 584ms (next.js: 405ms, application-code: 179ms)
+✓ Compiled in 257ms
+ GET / 200 in 942ms (next.js: 526ms, application-code: 416ms)
+✓ Compiled in 214ms
+ GET / 200 in 1089ms (next.js: 841ms, application-code: 248ms)
+ GET / 200 in 5.1s (next.js: 381ms, application-code: 4.7s)
+✓ Compiled in 1408ms
+ GET / 200 in 1698ms (next.js: 1380ms, application-code: 317ms)
+ GET / 200 in 9.0s (next.js: 488ms, application-code: 8.6s)
+ GET / 200 in 1608ms (next.js: 297ms, application-code: 1311ms)
+ GET / 200 in 23.2s (next.js: 1336ms, application-code: 21.9s)
+ GET / 200 in 9.2s (next.js: 177ms, application-code: 9.0s)
+[browser] Image with src "/card-background-images/card-bg-2.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading (file://C:/Users/LENOVO/OneDrive/Desktop/museum of tiny wins/mtw-app/.next/dev/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477:13)
+ GET / 200 in 1770ms (next.js: 147ms, application-code: 1623ms)
+[browser] Image with src "/card-background-images/card-bg-2.jpg" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+Read more: https://nextjs.org/docs/app/api-reference/components/image#loading (file://C:/Users/LENOVO/OneDrive/Desktop/museum of tiny wins/mtw-app/.next/dev/static/chunks/node_modules_next_dist_1ybzpk2._.js:2477:13)
+ GET / 200 in 10.9s (next.js: 5.1s, application-code: 5.8s)
+ GET / 200 in 942ms (next.js: 181ms, application-code: 761ms)
+ GET / 200 in 516ms (next.js: 26ms, application-code: 490ms)
+ GET / 200 in 3.5s (next.js: 541ms, application-code: 3.0s)
+ GET / 200 in 4.4s (next.js: 3.5s, application-code: 902ms)
+✓ Compiled in 2.9s
+✓ Finished filesystem cache database compaction in 12.8s
+ GET / 200 in 12.0s (next.js: 7.6s, application-code: 4.4s)
+ GET / 200 in 12.0s (next.js: 191ms, application-code: 11.8s)
+ GET / 200 in 1993ms (next.js: 252ms, application-code: 1740ms)
+ GET / 200 in 3.8s (next.js: 854ms, application-code: 3.0s)
+ GET / 200 in 13.0s (next.js: 2.2s, application-code: 10.8s)
+ GET / 200 in 1310ms (next.js: 114ms, application-code: 1196ms)

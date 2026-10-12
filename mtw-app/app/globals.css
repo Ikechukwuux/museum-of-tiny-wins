@@ -1,0 +1,753 @@
+/* ─────────────────────────────────────────────────────────────────
+   Museum of Tiny Wins — Global Stylesheet
+   Tailwind v4 CSS-first configuration.
+   Tokens are the source of truth; all Tailwind utilities reference them.
+   ───────────────────────────────────────────────────────────────── */
+@import "tailwindcss";
+
+/* ─── Design Tokens ──────────────────────────────────────────────── */
+:root {
+  /* Color Palette — six tokens, deliberately quiet. Gilt is the only
+     bold accent; everything else stays muted so it reads clearly. */
+  --color-cream: #FDFBF0; /* Page background — outermost layer        */
+  --color-parchment: #f1ebdc; /* Card / surface — one step warmer than cream */
+  --color-sage: #7c9473; /* Primary accent — buttons, links, actives  */
+  --color-sky: #c9d9e8; /* Atmospheric — gradients/glows only, never text fill */
+  --color-ink: #2b2823; /* Body text — warm near-black, never pure #000 */
+  --color-gilt: #b8934a; /* Signature — frame edges, CTA border, stamps */
+
+  /* Semantic Form Colors — strictly for validation states/system feedback */
+  --mtw-oxide: #9c3a3a; /* Error state — aged brick red, ~4.9:1 on parchment */
+  --mtw-success: var(--color-sage); /* Success state maps to primary accent */
+  --mtw-info: var(--color-sky); /* Info state maps to atmospheric accent */
+
+  /* Radius — load-bearing constant for the reveal animation.
+     Never deviate from this value per-component. */
+  --radius: 12px;
+
+  /* Win Card size scale — aspect-ratio tokens (§ size-scale spec).
+     Width never varies; only height varies via these four ratios.
+     Use with aspect-ratio: var(--mtw-card-ratio-{sm|md|lg|xl}) */
+  --mtw-card-ratio-sm: 1 / 1;
+  --mtw-card-ratio-md: 3 / 4;
+  --mtw-card-ratio-lg: 2 / 3;
+  --mtw-card-ratio-xl: 9 / 16;
+
+  /* Win Card masonry grid — fixed column widths per breakpoint.
+     These constants are the foundation for provably-correct text budgets
+     and server-computed grid row spans (no JS measurement). */
+  --mtw-col-sm: 280px;   /* ≥ 640px  */
+  --mtw-col-md: 280px;   /* ≥ 1024px */
+  --mtw-col-lg: 280px;   /* ≥ 1280px (four columns at the same width) */
+  --mtw-col-gap-sm: 20px;
+  --mtw-col-gap-md: 24px;
+
+  /* Masonry Grid Tokens */
+  --mtw-grid-hover-bleed: 12px;
+  --mtw-grid-edge-pad: 8px;
+
+  /* Typography — registered as CSS vars for Tailwind @theme binding.
+     Values are set by next/font in layout.tsx at runtime. */
+  --font-display: var(--font-fraunces), "Georgia", serif;
+  --font-body: var(--font-public-sans), "Arial", sans-serif;
+}
+
+/* ─── Tailwind v4 Theme Registration ────────────────────────────── */
+/* All tokens declared here become Tailwind utility classes.
+   e.g. bg-cream, text-ink, border-gilt, font-display, rounded-museum */
+@theme inline {
+  /* Colors */
+  --color-cream: var(--color-cream);
+  --color-parchment: var(--color-parchment);
+  --color-sage: var(--color-sage);
+  --color-sky: var(--color-sky);
+  --color-ink: var(--color-ink);
+  --color-gilt: var(--color-gilt);
+
+  /* Semantic Colors */
+  --color-oxide: var(--mtw-oxide);
+  --color-success: var(--mtw-success);
+  --color-info: var(--mtw-info);
+
+  /* Fonts */
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+
+  /* Border radius — single canonical value */
+  --radius-museum: var(--radius); /* Use: rounded-museum */
+
+  /* Type scale — named steps matching design.md §2.3 */
+  --text-display: 4rem; /* Hero headline, app name lockup */
+  --text-heading-2: 1.5rem; /* Win card headline, section headings */
+  --text-body: 1rem; /* All body copy, placard body, forms */
+  --text-label: 0.6875rem; /* Engraved-plate labels, tags, accession no. */
+
+  /* Spacing — generous, airy scale (design.md §3) */
+  --spacing-xs: 0.5rem; /*  8px — tight inline gaps */
+  --spacing-sm: 1rem; /* 16px — component internal padding */
+  --spacing-md: 2rem; /* 32px — card padding, form gaps */
+  --spacing-lg: 3rem; /* 48px — grid gaps between cards */
+  --spacing-xl: 4rem; /* 64px — section padding */
+  --spacing-2xl: 6rem; /* 96px — major section separation */
+  --spacing-3xl: 8rem; /* 128px — full-page section padding, desktop */
+}
+
+/* ─── Base Styles ────────────────────────────────────────────────── */
+@layer base {
+  html {
+    font-family: var(--font-body);
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-ink);
+    min-height: 100dvh;
+  }
+
+  /* Headings default to display serif */
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+  }
+
+  /* Smooth focus rings in the museum palette */
+  :focus-visible {
+    outline: 2px solid var(--color-sage);
+    outline-offset: 3px;
+    border-radius: var(--radius);
+  }
+
+  /* Form input specific focus (gilt accent) and autofill overrides */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus, 
+  input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 1000px var(--color-parchment) inset !important;
+    -webkit-text-fill-color: var(--color-ink) !important;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+  
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid var(--color-gilt);
+    outline-offset: 2px;
+    border-color: var(--color-gilt);
+  }
+
+  /* Reduced motion — genuine static alternative, not a no-op */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* ─── Component Layer ────────────────────────────────────────────── */
+@layer components {
+  /* ── Gilt Frame — The signature treatment.
+     Applied to: Win Cards (all variants), Submit Win Modal, primary CTA.
+     Never use on form inputs or secondary elements. */
+  .gilt-frame {
+    border: 1px solid var(--color-gilt);
+    border-radius: var(--radius);
+  }
+
+  .gilt-frame:hover {
+    border-color: color-mix(in srgb, var(--color-gilt) 100%, white 12%);
+  }
+
+  /* ── Engraved Plate Label — §2.3 / §2.4 of design.md
+     For: category tags, accession numbers, wing labels only.
+     Not for general UI labels — use sparingly, never for body copy. */
+  .label-engraved {
+    font-family: var(--font-body);
+    font-size: var(--text-label);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ── Type scale classes */
+  .text-scale-display {
+    font-family: var(--font-display);
+    font-size: var(--text-display);
+    line-height: 1.05;
+    font-weight: 500;
+  }
+
+  .text-scale-heading-2 {
+    font-family: var(--font-display);
+    font-size: var(--text-heading-2);
+    line-height: 1.25;
+    font-weight: 600;
+  }
+
+  .text-scale-body {
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    line-height: 1.65;
+    font-weight: 400;
+  }
+
+  .text-scale-label {
+    font-family: var(--font-body);
+    font-size: var(--text-label);
+    line-height: 1.4;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  /* ── Buttons */
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    height: 52px;
+    background-color: var(--color-sage);
+    color: white;
+    border: 2px solid var(--color-gilt);
+    border-radius: var(--radius); /* 12px */
+    cursor: pointer;
+    transition: background-color 200ms ease-out;
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    background-color: color-mix(in srgb, var(--color-sage) 88%, black 12%);
+  }
+
+  .btn-primary:active:not(:disabled) {
+    background-color: color-mix(in srgb, var(--color-sage) 75%, black 25%);
+    transform: translateY(1px);
+  }
+
+  .btn-primary:focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
+  }
+
+  .btn-primary:disabled {
+    background-color: var(--color-parchment);
+    color: color-mix(in srgb, var(--color-ink) 30%, transparent);
+    /* border stays 2px solid var(--color-gilt) inherited from base */
+    cursor: not-allowed;
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-body);
+    font-size: var(--text-body);
+    font-weight: 500;
+    padding: 0.75rem 1.5rem;
+    background-color: transparent;
+    color: var(--color-ink);
+    border: 1px solid color-mix(in srgb, var(--color-ink) 35%, transparent);
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition:
+      border-color 200ms ease-out,
+      background-color 200ms ease-out;
+  }
+
+  .btn-ghost:hover:not(:disabled) {
+    background-color: color-mix(
+      in srgb,
+      var(--color-parchment) 80%,
+      transparent
+    );
+    border-color: color-mix(in srgb, var(--color-ink) 55%, transparent);
+  }
+
+  .btn-ghost:active:not(:disabled) {
+    background-color: var(--color-parchment);
+    transform: translateY(1px);
+  }
+
+  .btn-ghost:focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
+  }
+
+  .btn-ghost:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  /* ─── Navbar responsive helpers ──────────────────────────────── */
+  /* Hide the auth slot (Sign In / first name) on small screens so the
+     pill doesn't feel cramped at 375px — the CTA is sufficient there. */
+  .navbar-auth-slot {
+    display: flex;
+  }
+
+  /* Hide the "Museum of Tiny Wins" sub-label under MTW on very narrow
+     screens; the monogram alone reads fine at that size. */
+  .navbar-wordmark-full {
+    display: block;
+  }
+
+  @media (max-width: 480px) {
+    .navbar-auth-slot {
+      display: none;
+    }
+    .navbar-wordmark-full {
+      display: none;
+    }
+  }
+
+  /* ─── Navbar Center Nav — Editorial ─────────────────────────────── */
+  /* Simple inline text links centered in the header bar.
+     Active state: gilt underline accent — no pill, no filled background. */
+  .navbar-center-nav {
+    display: flex;
+    align-items: center;
+    gap: 2.75rem;
+  }
+
+  .navbar-center-nav a {
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-ink);
+    text-decoration: none;
+    padding: 0.25rem 0;
+    transition: opacity 180ms ease;
+    opacity: 0.55;
+    white-space: nowrap;
+    letter-spacing: 0.01em;
+    position: relative;
+  }
+
+  .navbar-center-nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-gilt);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 250ms ease;
+  }
+
+  .navbar-center-nav a:hover {
+    opacity: 0.85;
+  }
+
+  .navbar-center-nav a:hover::after {
+    transform: scaleX(1);
+  }
+
+  .navbar-center-nav a.active {
+    opacity: 1;
+  }
+
+  .navbar-center-nav a.active::after {
+    transform: scaleX(1);
+  }
+
+  @media (max-width: 640px) {
+    .navbar-center-nav {
+      display: none;
+    }
+  }
+
+  /* ─── Marquee Strip ─────────────────────────────────────────────── */
+  /* Auto-scrolling horizontal strip of WinCards at the bottom of the hero */
+  @keyframes marquee-scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .marquee-strip {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 35s linear infinite;
+  }
+
+  .marquee-strip:hover {
+    animation-play-state: paused;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-strip {
+      animation: none;
+    }
+  }
+
+  /* ─── Hero Editorial Grid ──────────────────────────────────────── */
+  /* Two-column editorial spread below the photograph.
+     Left: museum headline sitting on left edge.
+     Right: body copy + CTAs sitting on right edge.
+     The space between headline and right section automatically fills (space-between). */
+  .hero-editorial-grid {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    .hero-editorial-grid {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+    }
+  }
+
+  /* ─── Hero Image Container Height System ─────────────────────── */
+  /* Controlled height system for the hero artwork:
+     • Mobile (320–767px): 175px – 300px compact scale
+     • Tablet (768–1023px): 396px – 440px
+     • Laptop (1024–1279px): ~560px
+     • Desktop (1280px+): 620px controlled maximum */
+  .hero-image-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    min-height: 175px;
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  @media (min-width: 768px) {
+    .hero-image-container {
+      max-height: 440px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-image-container {
+      height: 560px;
+      max-height: 560px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .hero-image-container {
+      height: 620px;
+      max-height: 620px;
+    }
+  }
+
+  /* ─── What This Is — Exhibition Card Grid ────────────────────── */
+  /* Responsive three-card exhibition grid:
+     Mobile (<768px):   1 column, centered, full width
+     Tablet (768–1023px): 2 columns, third card centered below
+     Desktop (1024px+):  3 equal columns */
+  .win-card-exhibition-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .win-card-exhibition-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem;
+    }
+
+    /* Third card spans both columns and centers itself at tablet */
+    .win-card-exhibition-grid > *:nth-child(3) {
+      grid-column: 1 / -1;
+      max-width: calc(50% - 0.875rem);
+      margin: 0 auto;
+      width: 100%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .win-card-exhibition-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    /* Reset the tablet override at desktop */
+    .win-card-exhibition-grid > *:nth-child(3) {
+      grid-column: auto;
+      max-width: none;
+      margin: 0;
+    }
+  }
+
+  /* ─── What This Is — Mobile card aspect-ratio normaliser ───────── */
+  /* On mobile, the tall editorial card (1:2 on desktop) should match
+     the compact card's 3:4 ratio so both feel visually balanced. */
+  @media (max-width: 767px) {
+    .wti-mobile-card > div {
+      aspect-ratio: 3 / 4 !important;
+    }
+  }
+
+  /* ─── Win Card Masonry Wall — salon hang ──────────────────────────
+     CSS Grid masonry via exact 1px row spans — no JS, no layout shift.
+     The vertical gutter G is intentionally looser than the horizontal gap,
+     so the wall breathes vertically like a gallery hang. Column-level
+     "salon" offsets give the wall a hung silhouette: the second column sits
+     highest, the first hangs a little lower, the third deepest, the fourth
+     its own subtle offset — so the first row never begins on one rigid
+     baseline. The grid is left-aligned to the shared content rail.
+     span = round(W * h/w) + G + offset                              */
+  .win-card-masonry-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* mobile: single full-width column */
+    column-gap: 16px;
+    row-gap: 20px;
+    width: 100%;
+    padding-top: clamp(1.5rem, 3vw, 2.5rem);
+  }
+
+  @media (min-width: 640px) {
+    .win-card-masonry-grid {
+      grid-template-columns: repeat(2, var(--mtw-col-sm));
+      grid-auto-rows: 1px;
+      row-gap: 0;
+      column-gap: 20px;
+      justify-content: start; /* left-aligned to the shared content rail */
+      margin-bottom: -28px; /* absorb the trailing gutter on the last row */
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .win-card-masonry-grid {
+      grid-template-columns: repeat(3, var(--mtw-col-md));
+      column-gap: 24px;
+      margin-bottom: -36px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .win-card-masonry-grid {
+      grid-template-columns: repeat(4, var(--mtw-col-lg));
+      column-gap: 24px;
+      margin-bottom: -40px;
+    }
+  }
+
+  .win-card-masonry-item {
+    box-sizing: border-box;
+    /* Mobile clamp: all cards render at md (3:4) on single-column layout. */
+    aspect-ratio: var(--mtw-card-ratio-md);
+  }
+
+  /* Per-breakpoint span + height + salon-offset overrides.
+     padding-top carries the salon offset; height = card + offset (border-box)
+     so the card keeps its exact ratio while the column starts at its own
+     height and the gutter stays intact below the card. */
+  @media (min-width: 640px) {
+    .win-card-masonry-item {
+      aspect-ratio: auto;
+      grid-row-end: span var(--_span-bp640);
+      height: var(--_h-bp640);
+      padding-top: var(--_pad-bp640, 0px);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .win-card-masonry-item {
+      grid-row-end: span var(--_span-bp1024);
+      height: var(--_h-bp1024);
+      padding-top: var(--_pad-bp1024, 0px);
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .win-card-masonry-item {
+      grid-row-end: span var(--_span-bp1280);
+      height: var(--_h-bp1280);
+      padding-top: var(--_pad-bp1280, 0px);
+    }
+  }
+
+  /* Masonry card entrance animation — staggered fade + rise.
+     Each item's delay is set via --_delay CSS custom property inline. */
+  @keyframes masonry-enter {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .win-card-masonry-item {
+    animation: masonry-enter 400ms ease-out both;
+    animation-delay: var(--_delay, 0ms);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .win-card-masonry-item {
+      animation: none;
+    }
+  }
+
+  /* ─── Editorial Hero Collage Grid ──────────────────────────────── */
+  /* Three-zone asymmetric layout inspired by editorial magazine spreads.
+     Mobile: single column vertical flow.
+     Tablet: 2 columns (text + card).
+     Desktop: 3-zone collage (text | media cluster | tall panel). */
+  .hero-collage-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    align-items: start;
+  }
+
+  @media (min-width: 768px) {
+    .hero-collage-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .hero-collage-grid {
+      grid-template-columns: 5fr 3fr 4fr;
+      gap: clamp(1.25rem, 2vw, 2rem);
+      align-items: start;
+    }
+  }
+
+  /* ── Hero image tile — subtle hover brightening ────────────────── */
+  .hero-image-tile {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: box-shadow 400ms ease-out;
+  }
+
+  .hero-image-tile:hover {
+    box-shadow: 0 8px 32px color-mix(in srgb, var(--color-ink) 10%, transparent);
+  }
+
+  /* ── Hero dark info panel — ink-colored editorial block ─────────── */
+  .hero-info-panel {
+    background-color: var(--color-ink);
+    border-radius: var(--radius);
+    padding: clamp(1.25rem, 3vw, 1.75rem);
+    color: var(--color-cream);
+  }
+
+  /* ── Vertical accent text — museum signage ─────────────────────── */
+  .hero-vertical-accent {
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: var(--font-body);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-ink) 20%, transparent);
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  /* ─── Collection Page Shell ─────────────────────────────────────── */
+  /* Shared layout system for the collection walls (Exhibition Hall and
+     My Museum). One disciplined content rail: the intro, category rail,
+     masonry wall, and continuation all sit on the same left edge, composed
+     as a single museum wall grid. Generous padding lets the wall breathe. */
+  .collection-shell {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: clamp(3rem, 6vw, 5rem) 16px clamp(5rem, 9vw, 7rem);
+    background-color: var(--color-cream);
+  }
+
+  @media (min-width: 640px) {
+    .collection-shell {
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .collection-shell {
+      padding-left: 32px;
+      padding-right: 32px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .collection-shell {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+  }
+
+  /* ─── Collection Intro — museum wall label ─────────────────────── */
+  /* Two-part room label: the title block on the left, a small curatorial
+     note on the right (museum marginalia, not a feature module). */
+  .collection-intro {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(1.75rem, 4vw, 2.5rem);
+    align-items: end;
+    margin-bottom: clamp(2.25rem, 5vw, 3.5rem);
+  }
+
+  @media (min-width: 900px) {
+    .collection-intro {
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 360px);
+      justify-content: space-between;
+      align-items: end;
+    }
+  }
+
+  /* ─── Collection Note — the small right-hand placard ───────────── */
+  .collection-note {
+    border-left: 1px solid color-mix(in srgb, var(--color-gilt) 45%, transparent);
+    padding-left: clamp(1.25rem, 2vw, 1.75rem);
+    max-width: 360px;
+  }
+
+  @media (max-width: 899px) {
+    .collection-note {
+      border-left: none;
+      border-top: 1px solid color-mix(in srgb, var(--color-gilt) 45%, transparent);
+      padding-left: 0;
+      padding-top: 1.25rem;
+      max-width: none;
+    }
+  }
+
+  /* ─── Collection Category Rail ─────────────────────────────────── */
+  /* Seats the text-led category directory against the intro above and the
+     wall below, with a single quiet hairline. */
+  .collection-rail {
+    margin-bottom: clamp(2rem, 4.5vw, 3rem);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-ink) 10%, transparent);
+    scrollbar-width: none;
+  }
+
+  .collection-rail::-webkit-scrollbar {
+    display: none;
+  }
+}
